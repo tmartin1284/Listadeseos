@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-export default function AddDeseo(onNewDeseo) {
+export default function AddDeseo({ onNewDeseo }) {
   const [NuevoDeseo, setNuevoDeseo] = useState("");
 
   return (
@@ -16,8 +16,13 @@ export default function AddDeseo(onNewDeseo) {
       <button
         id="button"
         onClick={() => {
-          onNewDeseo(NuevoDeseo);
-          setNuevoDeseo("");
+          //miramos si hay un deseo
+          if (!NuevoDeseo.trim() == "") {
+            // onNewDeseo({ titulo: NuevoDeseo, hecho: false, fecha: Date().now });
+            onNewDeseo(NuevoDeseo);
+            document.getElementsByTagName("input")[0].value = "";
+            setNuevoDeseo("");
+          }
         }}
       >
         Agregar Deseo
