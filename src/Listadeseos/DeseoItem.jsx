@@ -13,7 +13,7 @@ export default function DeseoItem({ Deseo, onHechoChange }) {
           onHechoChange(!Deseo.hecho);
         }}
       />
-      <label>{Deseo.titulo}</label>
+      <label id={Deseo.fecha}>{Deseo.titulo}</label>
     </li>
   );
 }

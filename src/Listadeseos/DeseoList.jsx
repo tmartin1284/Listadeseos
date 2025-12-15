@@ -8,17 +8,12 @@ export default function DeseoList({ Deseos, onHechoChange }) {
     <>
       <h1>lista deseos</h1>
       <ul>
-        {console.log(
-          "ListaDeseos en DeseoList:" + Deseos.length + typeof Deseos
-        )}
-
         {Deseos.map(
           (
             deseo,
             index //cuidado que yo aqui tenía una llave, y petaba
             //si lo ponemos con llave, hay que poner return
           ) => (
-            //console.log("Deseo en DeseoList:" + deseo.titulo),
             <DeseoItem
               Deseo={deseo} //mucho cuidado, que yo usaba la minuscula y no funcionaba
               key={index} //la key no se pasa al componente hijo, es para react internamente
@@ -44,5 +39,5 @@ DeseoList.propTypes = {
 };
 
 DeseoList.defaultProps = {
-  ListaDeseos: [],
+  Deseos: [],
 };

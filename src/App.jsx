@@ -5,9 +5,9 @@ import DeseoList from "./Listadeseos/DeseoList.jsx";
 import "./App.css";
 
 const estadoInicial = [
-  { titulo: "ir a a Luna", hecho: false, fecha: Date().now },
-  { titulo: "ir al quiropráctico", hecho: true, fecha: Date().now },
-  { titulo: "darle una ostia a izan", hecho: false, fecha: Date().now },
+  { titulo: "ir a a Luna", hecho: false, fecha: Date.now() },
+  { titulo: "ir al quiropráctico", hecho: true, fecha: Date.now() },
+  { titulo: "darle una ostia a izan", hecho: false, fecha: Date.now() },
 ];
 
 /*titulo: "ir a a Luna";
@@ -21,14 +21,19 @@ export default function App() {
     antDeseos[index].hecho = hecho;
     setDeseos(antDeseos);
   }
+  /* Podemos configurar esto de dos formas: 1) que el componente devuelva el deseo tal cual
+  o 2) que devuelva la descripción del deseo, y aquí completamos el resto de contenido del deseo.
+  
+  de cualquiera de las dos formas, hay que tener en cuenta que añada el deso a partir de la lista de deseos anterior , 
+  que está guardado en el estado, para no perder los deseos ya añadidos.
+  u */
 
   const agregardeseo = (a) => {
-    setDeseos((Deseos) => [
-      ...Deseos,
-      { titulo: a, hecho: false, fecha: Date().now },
-    ]);
-    console.log("Añadido deseo: " + a);
-    console.log(Deseos);
+    setDeseos((w) => [...w, { titulo: a, hecho: false, fecha: Date.now() }]);
+    /* setDeseos(() => [
+          ...Deseos,
+          { titulo: a, hecho: false, fecha: Date.now() },
+        ]);*/
   };
 
   return (

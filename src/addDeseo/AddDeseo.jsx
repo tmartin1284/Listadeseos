@@ -18,6 +18,7 @@ export default function AddDeseo({ onNewDeseo }) {
         onClick={() => {
           //miramos si hay un deseo
           if (!NuevoDeseo.trim() == "") {
+            //podemos elegir si queremos devolver el deseo como string y que luego se construya el objeto, o cevolverlo como  como objeto
             // onNewDeseo({ titulo: NuevoDeseo, hecho: false, fecha: Date().now });
             onNewDeseo(NuevoDeseo);
             document.getElementsByTagName("input")[0].value = "";
