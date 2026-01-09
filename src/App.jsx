@@ -41,7 +41,13 @@ export default function App() {
       <div>
         <h1>Mi lista de deseos 2025</h1>
         <AddDeseo onNewDeseo={agregardeseo} />
-        <DeseoList Deseos={Deseos} onHechoChange={onHechoChange} />
+        <DeseoList ListaDeseos={Deseos} onHechoChange={onHechoChange} />
+        <button
+          id="Carlos"
+          onClick={() => setDeseos(Deseos.filter((b) => !b.hecho))}
+        >
+          Limpiar deseos
+        </button>
       </div>
     </>
   );

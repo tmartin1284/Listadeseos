@@ -3,21 +3,21 @@ import PropTypes from "prop-types";
 import DeseoItem from "./DeseoItem.jsx";
 import "../App.css";
 
-export default function DeseoList({ Deseos, onHechoChange }) {
+export default function DeseoList({ ListaDeseos, onHechoChange }) {
   return (
     <>
       <h1>lista deseos</h1>
       <ul>
-        {Deseos.map(
+        {ListaDeseos.map(
           (
             deseo,
             index //cuidado que yo aqui tenía una llave, y petaba
             //si lo ponemos con llave, hay que poner return
           ) => (
             <DeseoItem
+              onHechoChange={(hecho) => onHechoChange(hecho, index)}
               Deseo={deseo} //mucho cuidado, que yo usaba la minuscula y no funcionaba
               key={index} //la key no se pasa al componente hijo, es para react internamente
-              onHechoChange={(hecho) => onHechoChange(hecho, index)}
             />
           )
         )}
@@ -28,7 +28,7 @@ export default function DeseoList({ Deseos, onHechoChange }) {
 }
 
 DeseoList.propTypes = {
-  Deseos: PropTypes.arrayOf(
+  ListaDeseos: PropTypes.arrayOf(
     PropTypes.shape({
       titulo: PropTypes.string,
       hecho: PropTypes.bool,
@@ -39,5 +39,5 @@ DeseoList.propTypes = {
 };
 
 DeseoList.defaultProps = {
-  Deseos: [],
+  ListaDeseos: [],
 };
