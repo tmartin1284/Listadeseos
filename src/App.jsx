@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddDeseo from "./addDeseo/AddDeseo.jsx";
+import AddDeseo from "./AddDeseo/AddDeseo.jsx";
 import DeseoList from "./Listadeseos/DeseoList.jsx";
 
 import "./App.css";
@@ -7,7 +7,7 @@ import "./App.css";
 const estadoInicial = [
   { titulo: "ir a a Luna", hecho: false, fecha: Date.now() },
   { titulo: "ir al quiropráctico", hecho: true, fecha: Date.now() },
-  { titulo: "darle una ostia a izan", hecho: false, fecha: Date.now() },
+  { titulo: "unas nike nuevas", hecho: false, fecha: Date.now() },
 ];
 
 /*titulo: "ir a a Luna";
@@ -34,16 +34,25 @@ export default function App() {
           ...Deseos,
           { titulo: a, hecho: false, fecha: Date.now() },
         ]);*/
+
+    /**
+     * Mucho ojo aqui. si os fijais, cuando actualizamos el estado, no accedemos al estado anterior directamente (Deseos),
+     * sino que usamos una función que recibe el estado anterior (w) y devuelve el nuevo estado.
+     * Esto es importante porque React puede agrupar varias actualizaciones de estado para optimizar el rendimiento,
+     * y si accedemos directamente a Deseos, podríamos estar trabajando con un estado desactualizado.
+     * Al usar la función, siempre obtenemos el estado más reciente.
+     */
   };
 
   return (
     <>
       <div>
-        <h1>Mi lista de deseos 2025</h1>
+        <h1>Mi lista de deseos 2025/26</h1>
         <AddDeseo onNewDeseo={agregardeseo} />
         <DeseoList ListaDeseos={Deseos} onHechoChange={onHechoChange} />
         <button
           id="Carlos"
+          className="Deseo-clear"
           onClick={() => setDeseos(Deseos.filter((b) => !b.hecho))}
         >
           Limpiar deseos

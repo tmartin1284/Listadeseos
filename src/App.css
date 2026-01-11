@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #92a5cb;
 }
 
 .logo {
@@ -39,4 +40,69 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.Deseo-input {
+  border: 0;
+  border-bottom: 3px dashed grey;
+  padding: 0;
+}
+.Deseo-input__label {
+  font-weight: 700;
+}
+.Deseo-input__field {
+  width: 100%;
+  border: 0;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: transparent;
+}
+.Deseo-input__field:focus {
+  outline: none;
+  border-bottom: 3px solid rgb(24, 6, 85);
+}
+.Deseo-input__button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background-color: rgb(69, 192, 230);
+  border: 1px solid rgb(50, 25, 209);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.Deseo-lista {
+  list-style: none;
+  padding: 0;
+}
+.Deseo-lista__item {
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+}
+.Deseo-lista__item > * + * {
+  margin-left: 1rem;
+}
+.Deseo-lista__item input {
+  width: 2rem;
+  height: 2rem;
+}
+.Deseo-lista__item--hecho label {
+  text-decoration: line-through;
+}
+.Deseo-clear {
+  width: 100%;
+  padding: 0.5rem;
+  background: rgb(148, 137, 228);
+  font-size: 1.2rem;
+  border: 4px solid rgb(36, 215, 111);
+  border-radius: 3px;
+}
+
+.Deseo-lista__item--viejo {
+  color: orange;
+}
+
+.Deseo-lista__item--hazloya {
+  color: red;
+  font-weight: bold;
 }

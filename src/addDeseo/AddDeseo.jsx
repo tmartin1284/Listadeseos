@@ -5,21 +5,25 @@ export default function AddDeseo({ onNewDeseo }) {
   const [NuevoDeseo, setNuevoDeseo] = useState("");
 
   return (
-    <div>
+    <fieldset id="fieldset" className="Deseo-Input">
       <input
         type="text"
         id="input"
+        className="Deseo-input__field"
+        placeholder="Escribe tu deseo"
         onChange={(e) => {
           setNuevoDeseo(e.target.value);
         }}
       />
       <button
         id="button"
+        className="Deseo-input__button"
         onClick={() => {
           //miramos si hay un deseo
           if (!NuevoDeseo.trim() == "") {
-            //podemos elegir si queremos devolver el deseo como string y que luego se construya el objeto, o cevolverlo como  como objeto
+            //podemos elegir si queremos devolver el deseo como string y que luego se construya el objeto, o devolverlo como  como objeto
             // onNewDeseo({ titulo: NuevoDeseo, hecho: false, fecha: Date().now });
+            //en este caso devolvemos solo el string y que luego se construya el objeto en el padre
             onNewDeseo(NuevoDeseo);
             document.getElementsByTagName("input")[0].value = "";
             setNuevoDeseo("");
@@ -28,7 +32,7 @@ export default function AddDeseo({ onNewDeseo }) {
       >
         Agregar Deseo
       </button>
-    </div>
+    </fieldset>
   );
 }
 

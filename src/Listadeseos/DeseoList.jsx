@@ -6,8 +6,14 @@ import "../App.css";
 export default function DeseoList({ ListaDeseos, onHechoChange }) {
   return (
     <>
-      <h1>lista deseos</h1>
-      <ul>
+      <h1>
+        Lista deseos{" "}
+        {ListaDeseos.reduce((acc, deseo) => acc + (!deseo.hecho ? 1 : 0), 0) ==
+        0
+          ? "realizados"
+          : ""}
+      </h1>
+      <ul className="Deseo-lista">
         {ListaDeseos.map(
           (
             deseo,
